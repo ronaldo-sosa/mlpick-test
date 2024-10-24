@@ -2,37 +2,42 @@ import streamlit as st
 from datetime import datetime
 
 # Añadir estilo CSS para el logo en la esquina superior derecha
-st.markdown(
-    """
-    <style>
-    .logo-container {
-        display: flex;
-        justify-content: flex-end;
-        position: fixed;
-        top: 0;
-        right: 0;
-        padding: 10px;
-    }
-    .logo-container img {
-        height: 50px; /* Ajusta el tamaño del logo aquí */
-    }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
+# st.markdown(
+#     """
+#     <style>
+#     .logo-container {
+#         display: flex;
+#         justify-content: flex-end;
+#         position: fixed;
+#         top: 0;
+#         right: 0;
+#         padding: 10px;
+#     }
+#     .logo-container img {
+#         height: 50px; /* Ajusta el tamaño del logo aquí */
+#     }
+#     </style>
+#     """,
+#     unsafe_allow_html=True
+# )
 
-# URL del logo desde GitHub
+# # URL del logo desde GitHub
+# logo_url = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
+
+# # Insertar el logo en la esquina superior derecha usando la URL
+# st.markdown(
+#     f"""
+#     <div class="logo-container">
+#         <img src="{logo_url}" alt="Logo">
+#     </div>
+#     """,
+#     unsafe_allow_html=True
+# )
+
 logo_url = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
 
-# Insertar el logo en la esquina superior derecha usando la URL
-st.markdown(
-    f"""
-    <div class="logo-container">
-        <img src="{logo_url}" alt="Logo">
-    </div>
-    """,
-    unsafe_allow_html=True
-)
+# Mostrar la imagen directamente para verificar si se carga correctamente
+st.image(logo_url, caption="Logo de prueba", use_column_width=True)
 
 # Título de la aplicación
 st.title("Date Selection")

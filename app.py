@@ -14,24 +14,24 @@ st.markdown(
         padding: 10px;
     }
     .logo-container img {
-        height: 50px;
+        height: 50px; /* Ajusta el tamaño del logo aquí */
     }
     </style>
     """,
     unsafe_allow_html=True
 )
 
-# Cargar una imagen local y convertirla a bytes
-logo_path = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
-logo = open(logo_path, "rb").read()
+# URL del logo desde GitHub
+logo_url = "https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/logo.png"
 
-# Insertar el logo usando HTML
+# Insertar el logo en la esquina superior derecha usando la URL
 st.markdown(
     f"""
     <div class="logo-container">
         <img src="{logo_url}" alt="Logo">
     </div>
     """,
+    unsafe_allow_html=True
 )
 
 # Título de la aplicación

@@ -1,6 +1,40 @@
 import streamlit as st
 from datetime import datetime
 
+# Añadir estilo CSS para el logo en la esquina superior derecha
+st.markdown(
+    """
+    <style>
+    .logo-container {
+        display: flex;
+        justify-content: flex-end;
+        position: fixed;
+        top: 0;
+        right: 0;
+        padding: 10px;
+    }
+    .logo-container img {
+        height: 50px;
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+
+# Cargar una imagen local y convertirla a bytes
+logo_path = "boldr.png"
+logo = open(logo_path, "rb").read()
+
+# Insertar el logo usando HTML
+st.markdown(
+    f"""
+    <div class="logo-container">
+        <img src="data:image/png;base64,{st.image(logo, use_column_width=False)}" alt="Logo">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
 # Título de la aplicación
 st.title("Date Selection")
 
@@ -31,3 +65,5 @@ opciones_seleccionadas = st.multiselect(
 
 # Mostrar las opciones seleccionadas
 st.write("You Chosen:", opciones_seleccionadas)
+
+

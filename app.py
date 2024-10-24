@@ -29,10 +29,9 @@ logo = open(logo_path, "rb").read()
 st.markdown(
     f"""
     <div class="logo-container">
-        <img src="data:image/png;base64,{st.image(logo, use_column_width=False)}" alt="Logo">
+        <img src="{logo_url}" alt="Logo">
     </div>
     """,
-    unsafe_allow_html=True
 )
 
 # Título de la aplicación

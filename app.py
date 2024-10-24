@@ -22,7 +22,7 @@ st.markdown(
 )
 
 # URL del logo desde GitHub
-logo_url = "https://raw.githubusercontent.com/tu-usuario/tu-repositorio/main/logo.png"
+logo_url = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
 
 # Insertar el logo en la esquina superior derecha usando la URL
 st.markdown(

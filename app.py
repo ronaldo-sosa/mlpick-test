@@ -9,8 +9,8 @@ st.markdown(
         display: flex;
         justify-content: flex-end;
         position: fixed;
-        top: 40px; /* Ajusta el top si el logo no es visible */
-        right: 25px; /* Ajusta el right si el logo no es visible */
+        top: 60px; /* Ajusta el top si el logo no es visible */
+        right: 35px; /* Ajusta el right si el logo no es visible */
         padding: 10px;
         z-index: 1; /* Asegúrate de que esté sobre otros elementos */
     }

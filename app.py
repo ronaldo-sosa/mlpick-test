@@ -22,7 +22,7 @@ st.markdown(
 )
 
 # Cargar una imagen local y convertirla a bytes
-logo_path = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
+logo_path = "https://au.boldrtech.com/images/boldr-orange.png"
 logo = open(logo_path, "rb").read()
 
 # Insertar el logo usando HTML

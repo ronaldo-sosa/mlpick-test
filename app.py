@@ -28,7 +28,7 @@ logo_url = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=
 st.markdown(
     f"""
     <div class="logo-container">
-        <img src=f"{logo_url}" alt="Logo">
+        <img src={logo_url} alt="Logo">
     </div>
     """,
     unsafe_allow_html=True

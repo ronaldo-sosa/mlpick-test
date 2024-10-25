@@ -66,7 +66,7 @@ opciones_seleccionadas = st.multiselect(
 st.write("You Chosen:", opciones_seleccionadas)
 
 import pandas as pd
-mport requests
+import requests
 
 # URL del archivo de Google Sheets (asegúrate de que el enlace tenga el formato correcto)
 drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"

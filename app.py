@@ -79,6 +79,10 @@ def load_data(url):
 
 # Cargar y mostrar el DataFrame
 df = load_data(drive_url)
+filtered_df = df[
+    (df['Fecha'] == pd.to_datetime(fecha_seleccionada)) &
+    (df['Nombre'].isin(opciones_seleccionadas))
+]
 st.write("Datos cargados desde Google Drive:")
-st.dataframe(df)
+st.dataframe(filtered_df)
 

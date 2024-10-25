@@ -66,22 +66,40 @@ opciones_seleccionadas = st.multiselect(
 st.write("You Chosen:", opciones_seleccionadas)
 
 import pandas as pd
-import gdown
+mport requests
 
-# URL del archivo de Google Sheets
+# URL del archivo de Google Sheets (asegúrate de que el enlace tenga el formato correcto)
 drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"
-  # Cambia el ID al de tu archivo
 
-# Descargar el archivo desde Google Drive y leerlo como DataFrame
-@st.cache_data  # cache_data permite que el archivo se descargue solo una vez
+# Descargar el archivo usando requests
+@st.cache_data
 def load_data(url):
-    gdown.download(url, 'kpis.xlsx', quiet=False)
-    df = pd.read_excel('kpis.xlsx')
-    return df
+    try:
+        # Descargar el archivo de Google Drive
+        response = requests.get(url)
+        response.raise_for_status()  # Verifica que la descarga sea exitosa
 
-# Ejecuta la función para cargar los datos
+        # Guardar el archivo temporalmente y leerlo como DataFrame
+        with open("kpis.xlsx", "wb") as file:
+            file.write(response.content)
+        
+        st.write("Archivo descargado y guardado temporalmente")
+        
+        # Cargar el archivo como DataFrame
+        df = pd.read_excel("kpis.xlsx")
+        st.write("Archivo leído correctamente como DataFrame")
+        
+        return df
+    except Exception as e:
+        st.error(f"Error al descargar o leer el archivo: {e}")
+        return None
+
+# Cargar los datos
 df = load_data(drive_url)
 
 # Mostrar el DataFrame en la aplicación Streamlit
-st.write("Datos cargados desde Google Drive:")
-st.dataframe(df)
+if df is not None:
+    st.write("Datos cargados desde Google Drive:")
+    st.dataframe(df)
+else:
+    st.write("No se pudo cargar el DataFrame. Verifica el enlace y el formato del archivo.")

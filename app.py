@@ -52,9 +52,10 @@ st.markdown(
     unsafe_allow_html=True
 )
 # Título de la aplicación
-st.title("Date Selection")
+st.title("MLPICK - Key Performance Indicator Tracker")
 
 # Mostrar el calendario y permitir al usuario seleccionar una fecha
+st.header('Date Selection')
 fecha_seleccionada = st.date_input(
     "Choose a date:", 
     value=datetime.today(),  # Fecha predeterminada es la fecha actual
@@ -68,7 +69,7 @@ st.write("You selected:", fecha_formateada)
 
 
 # Título de la aplicación
-st.title("Pilot Selection")
+st.header("Pilot Selection")
 
 # Lista de opciones para el dropdown
 opciones = ['Dan', 'Eman', 'Rich', 'Ron', 'Leon']

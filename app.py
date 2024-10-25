@@ -68,12 +68,8 @@ st.write("You Chosen:", opciones_seleccionadas)
 import pandas as pd
 import gdown
 
-# URL del archivo de Google Drive
-drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/edit?usp=sharing&ouid=116919126696681703976&rtpof=true&sd=true"
-
-# Convertir la URL de Google Drive al formato de descarga directo
-file_id = drive_url.split('/d/')[1].split('/view')[0]
-download_url = f"https://drive.google.com/uc?export=download&id={file_id}"
+# URL del archivo de Google Sheets
+drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"  # Cambia el ID al de tu archivo
 
 # Descargar el archivo desde Google Drive y leerlo como DataFrame
 @st.cache_data  # cache_data permite que el archivo se descargue solo una vez
@@ -82,10 +78,9 @@ def load_data(url):
     df = pd.read_excel('kpis.xlsx')
     return df
 
-df = load_data(download_url)
+# Ejecuta la función para cargar los datos
+df = load_data(drive_url)
 
 # Mostrar el DataFrame en la aplicación Streamlit
 st.write("Datos cargados desde Google Drive:")
 st.dataframe(df)
-
-

@@ -3,16 +3,14 @@ from datetime import datetime
 import pandas as pd
 import gdown
 
-# Añadir estilo CSS para el logo en la esquina superior derecha
+# Añadir estilo CSS para los logos en las esquinas
 st.markdown(
     """
     <style>
     .logo-container {
         display: flex;
-        justify-content: flex-end;
         position: fixed;
         top: 60px; /* Ajusta el top si el logo no es visible */
-        right: 35px; /* Ajusta el right si el logo no es visible */
         padding: 10px;
         z-index: 1; /* Asegúrate de que esté sobre otros elementos */
     }
@@ -31,14 +29,14 @@ st.markdown(
 )
 
 # URL del logo desde GitHub
-logo_boldr = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
-logo_ocado = 'https://github.com/ronaldo-sosa/mlpick-test/blob/main/ocado.png?raw=true'
+logo_url_right = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
+logo_url_left = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/your_left_logo.png?raw=true"  # Cambia esta URL por la de tu logo
 
-# Insertar el logo en la esquina superior derecha usando la URL
+# Insertar el logo en la esquina superior derecha
 st.markdown(
     f"""
-    <div class="logo-container">
-        <img src="{logo_boldr}" alt="Logo">
+    <div class="logo-container logo-right">
+        <img src="{logo_url_right}" alt="Logo Derecho">
     </div>
     """,
     unsafe_allow_html=True
@@ -48,7 +46,7 @@ st.markdown(
 st.markdown(
     f"""
     <div class="logo-container logo-left">
-        <img src="{logo_ocado}" alt="Logo Izquierdo">
+        <img src="{logo_url_left}" alt="Logo Izquierdo">
     </div>
     """,
     unsafe_allow_html=True

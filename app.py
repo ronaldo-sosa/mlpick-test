@@ -69,7 +69,7 @@ import pandas as pd
 import gdown
 
 # URL del archivo de Google Sheets
-drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx
+drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"
 "  # Cambia el ID al de tu archivo
 
 # Descargar el archivo desde Google Drive y leerlo como DataFrame

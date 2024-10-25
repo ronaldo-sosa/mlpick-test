@@ -46,9 +46,10 @@ fecha_seleccionada = st.date_input(
     min_value=datetime(2024, 10, 1),  # Fecha mínima
     max_value=datetime(2024, 10, 31)  # Fecha máxima
 )
+fecha_formateada = fecha_seleccionada.strftime('%m-%d-%Y')
 
 # Mostrar la fecha seleccionada
-st.write("You selected:", fecha_seleccionada)
+st.write("You selected:", fecha_formateada)
 
 
 # Título de la aplicación

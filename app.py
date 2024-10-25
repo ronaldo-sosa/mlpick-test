@@ -65,36 +65,31 @@ opciones_seleccionadas = st.multiselect(
 # Mostrar las opciones seleccionadas
 st.write("You Chosen:", opciones_seleccionadas)
 
+import streamlit as st
 import pandas as pd
-import requests
+import gdown
 
-# URL del archivo de Google Sheets (asegúrate de que el enlace tenga el formato correcto)
-drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"
+# URL del archivo de Google Sheets
+drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"  # Asegúrate de que el ID esté correcto
 
-# Descargar el archivo usando requests
-@st.cache_data
+# Descargar el archivo desde Google Drive y leerlo como DataFrame
+@st.cache_data  # cache_data permite que el archivo se descargue solo una vez
 def load_data(url):
     try:
-        # Descargar el archivo de Google Drive
-        response = requests.get(url)
-        response.raise_for_status()  # Verifica que la descarga sea exitosa
-
-        # Guardar el archivo temporalmente y leerlo como DataFrame
-        with open("kpis.xlsx", "wb") as file:
-            file.write(response.content)
-        
-        st.write("Archivo descargado y guardado temporalmente")
+        # Descargar el archivo usando gdown
+        gdown.download(url, 'kpis.xlsx', quiet=False)
+        st.write("Archivo descargado correctamente")
         
         # Cargar el archivo como DataFrame
-        df = pd.read_excel("kpis.xlsx")
-        st.write("Archivo leído correctamente como DataFrame")
+        df = pd.read_excel('kpis.xlsx')
+        st.write("Archivo leído correctamente")
         
         return df
     except Exception as e:
         st.error(f"Error al descargar o leer el archivo: {e}")
         return None
 
-# Cargar los datos
+# Ejecuta la función para cargar los datos
 df = load_data(drive_url)
 
 # Mostrar el DataFrame en la aplicación Streamlit

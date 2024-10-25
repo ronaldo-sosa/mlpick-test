@@ -16,6 +16,12 @@ st.markdown(
         padding: 10px;
         z-index: 1; /* Asegúrate de que esté sobre otros elementos */
     }
+    .logo-right {
+        right: 35px; /* Ajusta el espacio desde la derecha */
+    }
+    .logo-left {
+        left: 35px; /* Ajusta el espacio desde la izquierda */
+    }
     .logo-container img {
         height: 50px; /* Ajusta el tamaño del logo aquí */
     }
@@ -25,7 +31,8 @@ st.markdown(
 )
 
 # URL del logo desde GitHub
-logo_url = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
+logo_boldr = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
+logo_ocado = ''
 
 # Insertar el logo en la esquina superior derecha usando la URL
 st.markdown(

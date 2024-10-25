@@ -72,7 +72,7 @@ st.write("You Chosen:", opciones_seleccionadas)
 # URL del archivo de Google Sheets en formato Excel
 drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"
 
-@st.cache_data  # Cachear para que se descargue solo una vez
+# @st.cache_data  # Cachear para que se descargue solo una vez
 def load_data(url):
     gdown.download(url, 'kpis.xlsx', quiet=False)
     return pd.read_excel('kpis.xlsx')

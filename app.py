@@ -1,5 +1,7 @@
 import streamlit as st
 from datetime import datetime
+import pandas as pd
+import gdown
 
 # Añadir estilo CSS para el logo en la esquina superior derecha
 st.markdown(
@@ -65,36 +67,18 @@ opciones_seleccionadas = st.multiselect(
 # Mostrar las opciones seleccionadas
 st.write("You Chosen:", opciones_seleccionadas)
 
-import streamlit as st
-import pandas as pd
-import gdown
 
-# URL del archivo de Google Sheets
-drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"  # Asegúrate de que el ID esté correcto
 
-# Descargar el archivo desde Google Drive y leerlo como DataFrame
-@st.cache_data  # cache_data permite que el archivo se descargue solo una vez
+# URL del archivo de Google Sheets en formato Excel
+drive_url = "https://docs.google.com/spreadsheets/d/1xPgPtX41jZOcsvtzrU_ImaTOh-WBcfZ6/export?format=xlsx"
+
+@st.cache_data  # Cachear para que se descargue solo una vez
 def load_data(url):
-    try:
-        # Descargar el archivo usando gdown
-        gdown.download(url, 'kpis.xlsx', quiet=False)
-        st.write("Archivo descargado correctamente")
-        
-        # Cargar el archivo como DataFrame
-        df = pd.read_excel('kpis.xlsx')
-        st.write("Archivo leído correctamente")
-        
-        return df
-    except Exception as e:
-        st.error(f"Error al descargar o leer el archivo: {e}")
-        return None
+    gdown.download(url, 'kpis.xlsx', quiet=False)
+    return pd.read_excel('kpis.xlsx')
 
-# Ejecuta la función para cargar los datos
+# Cargar y mostrar el DataFrame
 df = load_data(drive_url)
+st.write("Datos cargados desde Google Drive:")
+st.dataframe(df)
 
-# Mostrar el DataFrame en la aplicación Streamlit
-if df is not None:
-    st.write("Datos cargados desde Google Drive:")
-    st.dataframe(df)
-else:
-    st.write("No se pudo cargar el DataFrame. Verifica el enlace y el formato del archivo.")

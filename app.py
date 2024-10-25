@@ -30,7 +30,7 @@ st.markdown(
 
 # URL del logo desde GitHub
 logo_url_right = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
-logo_url_left = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/your_left_logo.png?raw=true"  # Cambia esta URL por la de tu logo
+logo_url_left = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/ocado.png?raw=true"  # Cambia esta URL por la de tu logo
 
 # Insertar el logo en la esquina superior derecha
 st.markdown(

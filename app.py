@@ -32,13 +32,23 @@ st.markdown(
 
 # URL del logo desde GitHub
 logo_boldr = "https://github.com/ronaldo-sosa/mlpick-test/blob/main/boldr.png?raw=true"
-logo_ocado = ''
+logo_ocado = 'https://github.com/ronaldo-sosa/mlpick-test/blob/main/ocado.png?raw=true'
 
 # Insertar el logo en la esquina superior derecha usando la URL
 st.markdown(
     f"""
     <div class="logo-container">
-        <img src="{logo_url}" alt="Logo">
+        <img src="{logo_boldr}" alt="Logo">
+    </div>
+    """,
+    unsafe_allow_html=True
+)
+
+# Insertar el logo en la esquina superior izquierda
+st.markdown(
+    f"""
+    <div class="logo-container logo-left">
+        <img src="{logo_ocado}" alt="Logo Izquierdo">
     </div>
     """,
     unsafe_allow_html=True
